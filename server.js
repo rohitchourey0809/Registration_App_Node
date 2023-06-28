@@ -11,7 +11,7 @@ app.use(express.json())
 
 //Controllers
 app.use("/users",Usercontroller)
-app.use("/register",Registercontroller)
+app.post("/register",Registercontroller)
 
 const PORT = 8080;
 app.listen(PORT, async (req, res) => {
