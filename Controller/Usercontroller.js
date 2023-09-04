@@ -43,7 +43,7 @@ router.patch("/:id", async (req, res) => {
   try {
     const userdata = await User.findByIdAndUpdate(
       req.params.id,
-      { $set: req.body },
+      { $set: req.body.EMAIL},
       {
         new: true,
       }
@@ -58,12 +58,12 @@ router.patch("/:id", async (req, res) => {
     try {
       const userdata = await User.find(
         req.params.id,
-        { $set: req.body },
+        { $set: req.body.EMAIL },
         {
           new: true,
         }
       ).exec();
-      console.log("Userdata", userdata);
+      console.log("patchdata", userdata);
       return res.status(200).send(userdata);
     } catch (err) {
       return res.status(400).send({ message: err.message });
@@ -73,7 +73,7 @@ router.patch("/:id", async (req, res) => {
 router.get("", async (req, res) => {
   try {
     const userdata = await User.create(req.body);
-    console.log("Userdata", userdata);
+    console.log("Createdata", userdata);
     return res.status(200).send(userdata);
   } catch (err) {
     return res.status(400).send({ message: err.message });
