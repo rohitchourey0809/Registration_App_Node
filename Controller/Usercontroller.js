@@ -43,7 +43,7 @@ router.patch("/:id", async (req, res) => {
   try {
     const userdata = await User.findByIdAndUpdate(
       req.params.id,
-      { $set: req.body.EMAIL},
+      { $set: req.body },
       {
         new: true,
       }
@@ -58,7 +58,7 @@ router.patch("/:id", async (req, res) => {
     try {
       const userdata = await User.find(
         req.params.id,
-        { $set: req.body.EMAIL },
+        { $set: req.body },
         {
           new: true,
         }
