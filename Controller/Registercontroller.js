@@ -8,15 +8,15 @@ const Register = async (req,res) => {
     console.log("Registerfind---->", userdata)
 
     if(userdata){
-      res.status(400).send({message: "User Already Exists"})
+      return res.status(400).send({message: "User Already Exists"})
     }else{
       const Register = await User.create(req.body)
       
       console.log("RegisterCreate----->", Register)
     }
-    res.status(200).send(userdata)
+     return res.status(200).send(userdata)
   } catch (err) {
-    res.status(400).send({message: err.message})
+     return res.status(400).send({message: err.message})
   }
 }
 
